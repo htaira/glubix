@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# usage:
+# glubix-userparams-setup [enable|disable]
+
+ZABBIX_AGENTD_CONF=/etc/zabbix/zabbix_agentd.conf
+
+case $1 in
+"enable" )
+	echo "Updating /etc/zabbix/zabbix_agentd.conf ..."
+	\cp -f /etc/zabbix/zabbix_agentd.conf{,.backup-glubix}
+	perl -pi -e 's/^#\s(Include=\S+\/)$/$1/' $ZABBIX_AGENTD_CONF
+
+	;;
+
+"disable" )
+	echo "Updating /etc/zabbix/zabbix_agentd.conf ..."
+	perl -pi -e 's/^(Include=\S+\/)$/# $1/' $ZABBIX_AGENTD_CONF
+
+	;;
+esac

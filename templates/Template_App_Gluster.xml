@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+	This program is free software; you can redistribute it and/or modify it under the
+	terms of the GNU General Public License as published by the Free Software
+	Foundation, either version 3 of the License, or (at your option) any later
+	version.
+     				
+	This program is distributed in the hope that it will be useful, but WITHOUT ANY
+	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+	FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+	details.
+
+	You should have received a copy of the GNU General Public License along.
+	with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<zabbix_export version="1.0" date="22.08.13" time="19.00">
+	<hosts>
+		<host name="Template_App_Gluster">
+			<useip>0</useip>
+			<dns></dns>
+			<ip>0.0.0.0</ip>
+			<port>10050</port>
+			<status>3</status>
+			<groups>
+				<group>Templates</group>
+			</groups>
+			<items>
+				<item type="0" key="vfs.file.cksum[/usr/sbin/glusterd]" value="3">
+					<description>Checksum of $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Gluster</application>
+					</applications>
+				</item>
+				<item type="0" key="net.tcp.service[tcp,,24007]" value_type="3">
+					<description>$1 service is running</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<valuemap>Service state</valuemap>
+					<applications>
+						<application>Gluster</application>
+					</applications>
+				</item>
+				<item type="0" key="proc.num[glusterd]" value="3">
+					<description>Number of running processes $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Gluster</application>
+					</applications>
+				</item>
+			</items>
+			<triggers>
+				<trigger>
+					<description>/usr/sbin/glusterd has been changed on {HOSTNAME}</description>
+					<type>0</type>
+					<expression>{{HOSTNAME}:vfs.file.cksum[/usr/sbin/glusterd].diff(0)}&gt;0</expression>
+					<status>0</status>
+					<priority>1</priority>
+				</trigger>
+				<trigger>
+					<description>glusterd service is down on {HOSTNAME}</description>
+					<type>0</type>
+					<expression>{{HOSTNAME}:net.tcp.service[tcp,,24007].last(0)}=0</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+				<trigger>
+					<description>glusterd process is not running on {HOSTNAME}</description>
+					<type>0</type>
+					<expression>{{HOSTNAME}:proc.num[glusterd].last(0)}&lt;1</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+			</triggers>
+		</host>
+	</hosts>
+	<dependencies>
+	</dependencies>
+</zabbix_export>

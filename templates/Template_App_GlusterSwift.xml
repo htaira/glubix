@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+	This program is free software; you can redistribute it and/or modify it under the
+	terms of the GNU General Public License as published by the Free Software
+	Foundation, either version 3 of the License, or (at your option) any later
+	version.
+     				
+	This program is distributed in the hope that it will be useful, but WITHOUT ANY
+	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+	FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+	details.
+
+	You should have received a copy of the GNU General Public License along.
+	with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<zabbix_export version="1.0" date="22.08.13" time="19.00">
+	<hosts>
+		<host name="Template_App_GlusterSwift">
+			<useip>0</useip>
+			<dns></dns>
+			<ip>0.0.0.0</ip>
+			<port>10050</port>
+			<status>3</status>
+			<groups>
+				<group>Templates</group>
+			</groups>
+			<items>
+				<item type="0" key="vfs.file.cksum[/usr/bin/swift-proxy-server]" value="3">
+					<description>Checksum of $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="vfs.file.cksum[/etc/swift/proxy-server.conf]" value="3">
+					<description>Checksum of $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="net.tcp.service[tcp,,8080]" value_type="3">
+					<description>swift-proxy-server service is running</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<valuemap>Service state</valuemap>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="proc.num[python,,,/usr/bin/swift-proxy-server]" value="3">
+					<description>Number of running processes swift-proxy-server</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="vfs.file.cksum[/usr/bin/memcached]" value="3">
+					<description>Checksum of $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="vfs.file.cksum[/etc/sysconfig/memcached]" value="3">
+					<description>Checksum of $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="net.tcp.service[tcp,,11211]" value_type="3">
+					<description>memcached service is running</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<valuemap>Service state</valuemap>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+				<item type="0" key="proc.num[memcached]" value="3">
+					<description>Number of running processes $1</description>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>GlusterSwift</application>
+					</applications>
+				</item>
+			</items>
+			<triggers>
+				<trigger>
+					<description>/usr/bin/swift-proxy-server has been changed on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:vfs.file.cksum[/usr/bin/swift-proxy-server].diff(0)}&gt;0</expression>
+					<status>0</status>
+					<priority>1</priority>
+				</trigger>
+				<trigger>
+					<description>/etc/swift/proxy-server.conf has been changed on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:vfs.file.cksum[/etc/swift/proxy-server.conf].diff(0)}&gt;0</expression>
+					<status>0</status>
+					<priority>1</priority>
+				</trigger>
+				<trigger>
+					<description>swift-proxy-server service is down on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:net.tcp.service[tcp,,8080].last(0)}=0</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+				<trigger>
+					<description>swift-proxy-server process is not running on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:proc.num[python,,,/usr/bin/swift-proxy-server].last(0)}&lt;1</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+				<trigger>
+					<description>/usr/bin/memcached has been changed on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:vfs.file.cksum[/usr/bin/memcached].diff(0)}&gt;0</expression>
+					<status>0</status>
+					<priority>1</priority>
+				</trigger>
+				<trigger>
+					<description>/etc/sysconfig/memcached has been changed on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:vfs.file.cksum[/etc/sysconfig/memcached].diff(0)}&gt;0</expression>
+					<status>0</status>
+					<priority>1</priority>
+				</trigger>
+				<trigger>
+					<description>memcached service is down on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:net.tcp.service[tcp,,11211].last(0)}=0</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+				<trigger>
+					<description>memcached process is not running on {HOSTNAME}</description>
+					<expression>{{HOSTNAME}:proc.num[memcached].last(0)}&lt;1</expression>
+					<status>0</status>
+					<priority>3</priority>
+				</trigger>
+			</triggers>
+		</host>
+	</hosts>
+	<dependencies>
+	</dependencies>
+</zabbix_export>

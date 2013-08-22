@@ -1,0 +1,7 @@
+/etc/zabbix/zabbix_agentd/userparams-glubix.conf
+/usr/sbin/glubix-userparams-setup
+/usr/libexec/glubix_voltype.pl
+/usr/libexec/glubix_uuid.pl
+/usr/libexec/glubix_volstatus.pl
+/usr/libexec/glubix_checkvolstatus.pl
+/usr/libexec/glubix_numpeers.pl
