@@ -19,7 +19,7 @@ tarball:
 	tar -C workdir -zcf glubix-deploy.tar.gz .
 
 buildrpm:
-	pmaker -n glubix --pversion 1.0 --relations="requires:zabbix,zabbix-agent" --packager="Hajime Taira" --email="htaira@pantora.net" --ignore-owner --destdir=$(curdir)/workdir -w $(curdir)/rpmbuild -vv --no-mock file.list
+	pmaker -n glubix --pversion 1.1 --relations="requires:zabbix,zabbix-agent" --packager="Hajime Taira" --email="htaira@pantora.net" --ignore-owner --destdir=$(curdir)/workdir -w $(curdir)/rpmbuild -vv --no-mock file.list
 
 clean:
 	rm -f file.list
