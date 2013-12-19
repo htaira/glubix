@@ -1,4 +1,12 @@
 #!/usr/bin/perl
+# geo-replication via gsync for GlusterFS 3.3
+# Ex.
+#       ./glubix_.pl --volume_name vol1 --slave_url remote::geo-vol1
+#
+# options:
+#       --volume_name vol1
+#       --slave_url remote::geo-vol1
+#
 
 use strict;
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
