@@ -45,3 +45,19 @@ tar zxvf glubix-deploy.tar.gz -C /
 
 manually install script files on 'userparams' dir to gluster nodes.
 Please copy to /usr/libexec/
+
+### tested environment
+
+I tested following environment.
+
+Zabbix
+ - Zabbix 1.8 (from EPEL)
+ - Zabbix 2.0 (from EPEL)
+
+Gluster
+ - GlusterFS 3.3
+ - GlusterFS 3.4
+
+Red Hat Storage Serer
+ - Red Hat Storage Server 2.0 (RHEL6.2 + GlusterFS 3.3)
+ - Red Hat Storage Server 2.1 (RHEL6.4 + GlusterFS 3.4)

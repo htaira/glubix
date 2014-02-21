@@ -44,3 +44,18 @@ tar zxvf glubix-deploy.tar.gz -C /
 もしもマニュアルでスクリプトファイルをglusterノードへインストールする場合
 'userparams' ディレクトリ内のスクリプトファイルを /usr/libexec/ へコピーしてください。
 
+### テスト済み環境
+
+以下の環境で稼働テストを行なっております。
+
+Zabbix
+ - Zabbix 1.8 (EPEL提供)
+ - Zabbix 2.0 (EPEL提供)
+
+Gluster
+ - GlusterFS 3.3 
+ - GlusterFS 3.4 
+
+Red Hat Storage Serer
+ - Red Hat Storage Server 2.0 (RHEL6.2 + GlusterFS 3.3)
+ - Red Hat Storage Server 2.1 (RHEL6.4 + GlusterFS 3.4)
