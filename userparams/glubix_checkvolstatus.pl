@@ -32,20 +32,46 @@ if ($result =~ m/Status: Started/) {
 	# volume status is Started
 	$rc = 1;
 
+	# Now parse the result of gluster volume status command
+	# Sample output:
+	# # gluster volume status vol1
+	# Status of volume: vol1
+	# Gluster process                        Port    Online   Pid
+	# ------------------------------------------------------------
+	# Self-heal Daemon on localhost          N/A     Y       18491
+	# Brick rhgs3n1:/srv/gluster/brick1/vol1      49152     0          Y       2834 
+	# Brick rhgs3n2:/srv/gluster/brick1/vol1      49152     0          Y       2790 
+	# Brick rhgs3n1:/srv/gluster/brick2/vol1      49153     0          Y       2847 
+	# Brick rhgs3n2:/srv/gluster/brick2/vol1      49153     0          N       2807 
+	# NFS Server on localhost                     2049      0          Y       2865 
+	# Self-heal Daemon on localhost               N/A       N/A        Y       2871 
+	# NFS Server on rhgs3n1                       2049      0          Y       2824 
+	# Self-heal Daemon on rhgs3n1                 N/A       N/A        Y       2830 
+
 	if ($gluster_volume_numbricks ne "" && $gluster_volume_numbricks > 0) {
-		my $exec_cmd2 = "$gluster_cmd volume status $gluster_volume_name 2> /dev/null | grep '^Brick' | wc -l";
+		my $exec_cmd2 = "$gluster_cmd volume status $gluster_volume_name 2> /dev/null";
 		my $result2 = `$exec_cmd2`;
+                my $online_bricks = 0;
 
-	 	my $num_active_brick = $result2;
+		my @output = split(/\n/, $result2);
+		foreach my $line (@output) {
+			my @stat = split(/\s+/, $line);
 
-		# If number of active bricks were less than $gluster_volume_numbricks. return code is 0;
-		if( $num_active_brick < $gluster_volume_numbricks ) {
-			# missing some bricks. may be down.
-			$rc = 0;
-		} else {
-			# brick is healthy
-			$rc = 1;
+			if (@stat[0] ne "Brick") {
+				next;
+			} elsif (@stat[0] eq "Brick" && @stat[-2] ne 'Y') {
+# for debug
+#				print "Brick: ".@stat[1]." seems OFFLINE.\n";
+				next;
+			}
+
+			$online_bricks++;
 		}
+
+# for debug
+#		print "online_bricks = ".$online_bricks."\n";
+
+		$rc = ($online_bricks == $gluster_volume_numbricks) ? 1 : 0;
 	}
 } elsif ($result =~ m/Status: Stopped/) {
 	# volume status is Stopped
