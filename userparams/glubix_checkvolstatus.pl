@@ -36,13 +36,12 @@ if ($result =~ m/Status: Started/) {
 	# Sample output:
 	# # gluster volume status vol1
 	# Status of volume: vol1
-	# Gluster process                        Port    Online   Pid
+	# Gluster process                             TCP Port  RDMA Port  Online  Pid
 	# ------------------------------------------------------------
-	# Self-heal Daemon on localhost          N/A     Y       18491
 	# Brick rhgs3n1:/srv/gluster/brick1/vol1      49152     0          Y       2834 
 	# Brick rhgs3n2:/srv/gluster/brick1/vol1      49152     0          Y       2790 
 	# Brick rhgs3n1:/srv/gluster/brick2/vol1      49153     0          Y       2847 
-	# Brick rhgs3n2:/srv/gluster/brick2/vol1      49153     0          N       2807 
+	# Brick rhgs3n2:/srv/gluster/brick2/vol1      N/A       N/A        N       2807 
 	# NFS Server on localhost                     2049      0          Y       2865 
 	# Self-heal Daemon on localhost               N/A       N/A        Y       2871 
 	# NFS Server on rhgs3n1                       2049      0          Y       2824 
