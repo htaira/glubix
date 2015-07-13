@@ -10,10 +10,13 @@
 #                    Distribute
 #                    Stripe
 #                    Replicate
+#                    Disperse
+#                    Tier
 #                    Striped-Replicate
 #                    Distributed-Stripe
 #                    Distributed-Replicate 
 #                    Distributed-Striped-Replicate
+#                    Distributed-Disperse
 
 use strict;
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
