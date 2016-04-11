@@ -53,6 +53,8 @@ I tested following environment.
 Zabbix
  - Zabbix 1.8 (from EPEL)
  - Zabbix 2.0 (from EPEL)
+ - Zabbix 3.0 (from Zabbix LCC.)
+   http://repo.zabbix.com/
 
 Gluster
  - GlusterFS 3.3
@@ -65,3 +67,4 @@ Red Hat Gluster Storage
  - Red Hat Storage Server 2.1 (RHEL6.4 + GlusterFS 3.4)
  - Red Hat Gluster Storage 3.0 (RHEL6.6 + GlusterFS 3.6)
  - Red Hat Gluster Storage 3.1 (RHEL6.6 + GlusterFS 3.7)
+ - Red Hat Gluster Storage 3.1 (RHEL7.1 + GlusterFS 3.7)

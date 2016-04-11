@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	This program is free software; you can redistribute it and/or modify it under the
+	terms of the GNU General Public License as published by the Free Software
+	Foundation, either version 3 of the License, or (at your option) any later
+	version.
+     				
+	This program is distributed in the hope that it will be useful, but WITHOUT ANY
+	WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+	FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+	details.
+
+	You should have received a copy of the GNU General Public License along.
+	with this program. If not, see <http://www.gnu.org/licenses/>.
+-->
+<zabbix_export>
+	<version>3.0</version>
+	<date>2016-04-11T13:00:00Z</date>
+	<groups>
+		<group>
+			<name>Templates</name>
+		</group>
+	</groups>
+	<templates>
+		<template>
+			<template>Template App GlusterSwift</template>
+			<name>Template App GlusterSwift</name>
+			<description>Application Template for GlusterSwift</description>
+			<groups>
+				<group>
+					<name>Templates</name>
+				</group>
+			</groups>
+			<applications>
+				<application>
+					<name>GlusterSwift</name>
+				</application>
+			</applications>
+			<items>
+				<item>
+					<name>Checksum of swift-proxy-server</name>
+					<description>Checksum of swift-proxy-server</description>
+					<key>vfs.file.cksum[/usr/bin/swift-proxy-server]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>Checksum of proxy-server.conf</name>
+					<description>Checksum of proxy-server.conf</description>
+					<key>vfs.file.cksum[/etc/swift/proxy-server.conf]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>TCP port of swift-proxy</name>
+					<description>TCP port of swift-proxy</description>
+					<key>net.tcp.port[,{$GF_SWIFT_PORT}]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>Number of running processes swift-proxy</name>
+					<description>Number of running processes swift-proxy</description>
+					<key>proc.num[python,,,/usr/bin/swift-proxy-server]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>Checksum of memcached</name>
+					<description>Checksum of memcached</description>
+					<key>vfs.file.cksum[/usr/bin/memcached]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>Checksum of memcached config</name>
+					<description>Checksum of memcached config</description>
+					<key>vfs.file.cksum[/etc/sysconfig/memcached]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>Number of running processes memcached</name>
+					<description>Number of running processes memcached</description>
+					<key>proc.num[memcached]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+				<item>
+					<name>TCP port of memcached</name>
+					<description>TCP port of memcached</description>
+					<key>net.tcp.port[,{$GF_MEMCACHED_PORT}]</key>
+					<type>0</type>
+					<delay>300</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<value_type>3</value_type>
+					<snmp_community/>
+					<snmp_oid/>
+					<snmpv3_authprotocol>0</snmpv3_authprotocol>
+					<snmpv3_contextname/>
+					<snmpv3_securityname/>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase/>
+					<snmpv3_privprotocol>0</snmpv3_privprotocol>
+					<snmpv3_privpassphrase/>
+					<multiplier>0</multiplier>
+					<status>0</status>
+					<allowed_hosts/>
+					<units/>
+					<delta>0</delta>
+					<delay_flex/>
+					<params/>
+					<ipmi_sensor/>
+					<data_type>0</data_type>
+					<authtype>0</authtype>
+					<username/>
+					<password/>
+					<publickey/>
+					<privatekey/>
+					<port/>
+					<inventory_link>0</inventory_link>
+					<applications>
+						<application>
+							<name>GlusterSwift</name>
+						</application>
+					</applications>
+					<valuemap/>
+					<logtimefmt/>
+				</item>
+			</items>
+			<macros>
+				<macro>
+					<macro>{$GF_SWIFT_PORT}</macro>
+					<value>8080</value>
+				</macro>
+				<macro>
+					<macro>{$GF_MEMCACHED_PORT}</macro>
+					<value>11211</value>
+				</macro>
+			</macros>
+		</template>
+	</templates>
+	<triggers>
+		<trigger>
+			<name>Checksum of /usr/bin/swift-proxy-server</name>
+			<description>/usr/bin/swift-proxy-server has been changed on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:vfs.file.cksum[/usr/bin/swift-proxy-server].diff(0)}&gt;0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>Checksum of /etc/swift/proxy-server.conf</name>
+			<description>/etc/swift/proxy-server.conf has been changed on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:vfs.file.cksum[/etc/swift/proxy-server.conf].diff(0)}&gt;0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>swift-proxy-server service is down on {HOSTNAME}</name>
+			<description>swift-proxy-server service is down on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:net.tcp.port[,{$GF_SWIFT_PORT}].last(0)}=0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>swift-proxy-server process is not running on {HOSTNAME}</name>
+			<description>swift-proxy-server process is down on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:proc.num[python,,,/usr/bin/swift-proxy-server].last(0)}&lt;1</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>Checksum of /usr/bin/memcached</name>
+			<description>/usr/bin/memcached has been changed on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:vfs.file.cksum[/usr/bin/memcached].diff(0)}&gt;0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>Checksum of /etc/sysconfig/memcached</name>
+			<description>/etc/sysconfig/memcached has been changed on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:vfs.file.cksum[/etc/sysconfig/memcached].diff(0)}&gt;0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>memcached service is down on {HOSTNAME}</name>
+			<description>memcached service is down on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:net.tcp.port[,{$GF_MEMCACHED_PORT}].last(0)}=0</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+		<trigger>
+			<name>memcached process is not running on {HOSTNAME}</name>
+			<description>memcached process is down on {HOSTNAME}</description>
+			<type>0</type>
+			<expression>{Template App GlusterSwift:proc.num[memcached].last(0)}&lt;1</expression>
+			<status>0</status>
+			<priority>1</priority>
+			<dependencies/>
+			<url/>
+		</trigger>
+	</triggers>
+</zabbix_export>
