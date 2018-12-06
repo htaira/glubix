@@ -9,6 +9,9 @@ Usage
 
 Please import template files via Zabbix web interface.
 
+Notes: 'userparams' script files aren't loading automatically.
+Because Zabbix server rejected entry of 'userparams' when loading Glubix template.
+
 ### userparam script files in 'userparams' directory###
 
 ### install glubix via rpm
@@ -53,8 +56,7 @@ I tested following environment.
 Zabbix
  - Zabbix 1.8 (from EPEL)
  - Zabbix 2.0 (from EPEL)
- - Zabbix 3.0 (from Zabbix LCC.)
-   http://repo.zabbix.com/
+ - Zabbix 3.0 (from Zabbix LCC.) http://repo.zabbix.com/
 
 Gluster
  - GlusterFS 3.3
@@ -68,3 +70,11 @@ Red Hat Gluster Storage
  - Red Hat Gluster Storage 3.0 (RHEL6.6 + GlusterFS 3.6)
  - Red Hat Gluster Storage 3.1 (RHEL6.6 + GlusterFS 3.7)
  - Red Hat Gluster Storage 3.1 (RHEL7.1 + GlusterFS 3.7)
+
+### known issue
+
+Old GlusterFS has a lock issue. with error message "Unable to acquire lock for _VOLNAME_"
+Ex. When you hit some conditions. You can't acquire lock for "gluster volume status" command. It will fail command.
+If you want to remove this route cause that I recommend to upgrade to GlusterFS 3.12.0( or higher).
+
+See also this patch on [gluster gerrit#18437](https://review.gluster.org/#/c/glusterfs/+/18437/)
